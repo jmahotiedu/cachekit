@@ -1,0 +1,26 @@
+# build artifacts
+build/
+*.o
+*.d
+cachekit
+benchmark
+
+# editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# os
+.DS_Store
+Thumbs.db
+
+# persistence
+*.ckdb
+
+# tooling (do not commit)
+.claude/
+.cursor/
+.cursorrules
+.aider*
