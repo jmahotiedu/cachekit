@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        cc: [gcc, clang]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: build (${{ matrix.cc }})
+        run: make CC=${{ matrix.cc }} clean all
+
+      - name: test (${{ matrix.cc }})
+        run: make CC=${{ matrix.cc }} test
+
+  asan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: build and test with AddressSanitizer
+        run: make asan
+
+  valgrind:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: build
+        run: make clean test
+
+      - name: valgrind (no leaks)
+        run: valgrind --leak-check=full --error-exitcode=1 ./build/test_runner

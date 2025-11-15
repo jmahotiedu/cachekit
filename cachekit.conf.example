@@ -1,0 +1,14 @@
+# cachekit example config
+# copy to cachekit.conf or pass options via -p / -d
+
+# listen port (default 6380)
+# port 6380
+
+# RDB snapshot path (default dump.ckdb)
+# rdb dump.ckdb
+
+# max memory in bytes; 0 = unlimited. when set, approximate LRU eviction is used
+# maxmemory 0
+
+# eviction policy when maxmemory is reached: allkeys-lru (default), noeviction
+# eviction allkeys-lru
