@@ -110,7 +110,7 @@ See `cachekit.conf.example`. Options: port, RDB path, maxmemory, eviction policy
 make test
 ```
 
-Unit tests: hashtable, list, store, protocol, persistence. AddressSanitizer: `make asan`. Before first push run `./scripts/verify-authors.sh`.
+Unit tests: hashtable, list, store, protocol, persistence. AddressSanitizer: `make asan`.
 
 ## License
 
