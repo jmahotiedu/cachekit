@@ -37,6 +37,8 @@ redis-cli -p 6380 GET foo
 # "bar"
 ```
 
+**CI** — GitHub Actions runs `make` and `make test` (gcc + clang, AddressSanitizer, Valgrind) on every push to main.
+
 ## Architecture
 
 ```
