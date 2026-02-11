@@ -1,3 +1,4 @@
+#define _POSIX_C_SOURCE 200112L
 #include "store.h"
 #include "util.h"
 #include <stdlib.h>

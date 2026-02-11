@@ -1,3 +1,4 @@
+#define _POSIX_C_SOURCE 200112L
 #include "server.h"
 #include "protocol.h"
 #include "util.h"
@@ -19,6 +20,7 @@ typedef SOCKET ck_socket_t;
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <errno.h>
+#include <sys/select.h>
 typedef int ck_socket_t;
 #define CK_INVALID_SOCKET (-1)
 #define ck_close(s) close(s)
