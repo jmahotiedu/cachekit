@@ -45,8 +45,8 @@ char *ck_strdup(const char *s) {
 
 char *ck_strndup(const char *s, size_t n) {
     if (!s) return NULL;
-    size_t len = strlen(s);
-    if (len > n) len = n;
+    const char *end = memchr(s, '\0', n);
+    size_t len = end ? (size_t)(end - s) : n;
     char *dup = ck_malloc(len + 1);
     memcpy(dup, s, len);
     dup[len] = '\0';
