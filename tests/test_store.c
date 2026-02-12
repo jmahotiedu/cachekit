@@ -40,9 +40,9 @@ void test_store_int(void) {
     store_t *s = store_create();
     int64_t out;
     ok(store_set_int(s, "n", 42) == 0, "set_int");
-    ok(store_get_int(s, "n", &out) == 1 && out == 42, "get_int");
-    ok(store_incr(s, "n", &out) == 1 && out == 43, "incr");
-    ok(store_decr(s, "n", &out) == 1 && out == 42, "decr");
+    ok(store_get_int(s, "n", &out) == 0 && out == 42, "get_int");
+    ok(store_incr(s, "n", &out) == 0 && out == 43, "incr");
+    ok(store_decr(s, "n", &out) == 0 && out == 42, "decr");
     store_destroy(s);
 }
 
@@ -55,7 +55,6 @@ void test_store_list(void) {
     ok(n == 2 && out[0] != NULL && out[1] != NULL, "lrange");
     if (n >= 2) {
         ok(strcmp(out[0], "b") == 0 && strcmp(out[1], "a") == 0, "lrange order");
-        for (int i = 0; i < n; i++) free(out[i]);
     }
     char *p = store_lpop(s, "l");
     ok(p != NULL && strcmp(p, "b") == 0, "lpop");

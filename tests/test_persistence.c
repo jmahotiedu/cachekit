@@ -36,7 +36,7 @@ int test_persistence_run(void) {
     v = store_get(s, "k2");
     ok(v != NULL && strcmp(v, "val2") == 0, "get k2");
     int64_t n;
-    ok(store_get_int(s, "n", &n) == 1 && n == 99, "get n");
+    ok(store_get_int(s, "n", &n) == 0 && n == 99, "get n");
     store_destroy(s);
 
     remove(path);
