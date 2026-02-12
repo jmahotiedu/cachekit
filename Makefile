@@ -1,5 +1,5 @@
 CC ?= gcc
-CFLAGS = -Wall -Wextra -Wpedantic -std=c11 -O2 -g
+CFLAGS = -Wall -Wextra -Wpedantic -std=c11 -O2 -g -D_POSIX_C_SOURCE=200809L
 LDFLAGS = -lm
 # Windows (MinGW): make LDFLAGS="-lm -lws2_32"
 
